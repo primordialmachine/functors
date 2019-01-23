@@ -39,7 +39,7 @@
 \SetLibraryStaticLibrariesDirectoryPath{primordialmachine/functors/\newline\$(PlatformTarget.toLower())/\$(Configuration.toLower())/libraries}
 \SetLibraryStaticLibraryFileName{functors.lib}
 
-\SetLibraryVersion{v1.0}
+\SetLibraryVersion{v1.1}
 \SetLibraryRepository{https://github.com/primordialmachine/functors}
 \SetAuthor{Michael Heilmann}
 \SetEmail{michaelheilmann@primordialmachine.com}
@@ -88,13 +88,17 @@ The library officially only supports Visual Studio 2017 and Windows 10.
 The namespace this library is adding its declarations/definitions to.
 The added namespace elements are documented below.\newline
 
+\subsection{Aliases for STL functionality}
 The library provides aliases for
 \begin{enumerate}
 	\item \texttt{std::enable\_if} and \texttt{enable\_if\_t},
 	\item \texttt{std::is\_floating\_point} and \texttt{std::is\_floating\_point\_v},
-	\item \texttt{std::is\_same} and \texttt{std::is\_same\_v}, and
-	\item \texttt{std::common\_type} and \texttt{std::common\_type\_t}
+	\item \texttt{std::is\_same} and \texttt{std::is\_same\_v},
+	\item \texttt{std::common\_type} and \texttt{std::common\_type\_t},
+	\item \texttt{std::size\_t},
+	\item \texttt{std::integer\_sequence} and \texttt{std::make\_integer\_sequence},
+	\item \texttt{std::index\_sequence} and \texttt{std::make\_index\_sequence}.
 \end{enumerate}
-int the aformended namespace.
+in the aformended namespace.
 
 \end{document}
