@@ -25,6 +25,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="includes\primordialmachine\functors\common_type.hpp" />
+    <ClInclude Include="includes\primordialmachine\functors\arity.hpp" />
+    <ClInclude Include="includes\primordialmachine\functors\result_type.hpp" />
     <ClInclude Include="includes\primordialmachine\functors\include.hpp" />
     <ClInclude Include="includes\primordialmachine\functors\integer_sequence.hpp" />
     <ClInclude Include="includes\primordialmachine\functors\is_floating_point.hpp" />
@@ -138,8 +140,8 @@
       <Command>xcopy $(ProjectDir)includes $(PackageDir)includes\ /S /E /Y
 xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
       <Message>Create package.</Message>
-      <Outputs>$(PackageDir)includes\primordialmachine\functors\common_type.hpp;$(PackageDir)includes\primordialmachine\functors\enable_if.hpp;$(PackageDir)includes\primordialmachine\functors\include.hpp;$(PackageDir)includes\primordialmachine\functors\is_floating_point.hpp;$(PackageDir)includes\primordialmachine\functors\is_same.hpp;$(PackageDir)includes\primordialmachine\functors\integer_sequence.hpp</Outputs>
-      <Inputs>$(ProjectDir)includes\primordialmachine\functors\common_type.hpp;$(ProjectDir)includes\primordialmachine\functors\enable_if.hpp;$(ProjectDir)includes\primordialmachine\functors\include.hpp;$(ProjectDir)includes\primordialmachine\functors\is_floating_point.hpp;$(ProjectDir)includes\primordialmachine\functors\is_same.hpp;$(ProjectDir)includes\primordialmachine\functors\integer_sequence.hpp</Inputs>
+      <Outputs>$(PackageDir)includes\primordialmachine\functors\common_type.hpp;$(PackageDir)includes\primordialmachine\functors\enable_if.hpp;$(PackageDir)includes\primordialmachine\functors\arity.hpp;$(PackageDir)includes\primordialmachine\functors\result_type.hpp;$(PackageDir)includes\primordialmachine\functors\include.hpp;$(PackageDir)includes\primordialmachine\functors\is_floating_point.hpp;$(PackageDir)includes\primordialmachine\functors\is_same.hpp;$(PackageDir)includes\primordialmachine\functors\integer_sequence.hpp</Outputs>
+      <Inputs>$(ProjectDir)includes\primordialmachine\functors\common_type.hpp;$(ProjectDir)includes\primordialmachine\functors\enable_if.hpp;$(ProjectDir)includes\primordialmachine\functors\arity.hpp;$(ProjectDir)includes\primordialmachine\functors\result_type.hpp;$(ProjectDir)includes\primordialmachine\functors\include.hpp;$(ProjectDir)includes\primordialmachine\functors\is_floating_point.hpp;$(ProjectDir)includes\primordialmachine\functors\is_same.hpp;$(ProjectDir)includes\primordialmachine\functors\integer_sequence.hpp</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -165,8 +167,8 @@ xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
       <Command>xcopy $(ProjectDir)includes $(PackageDir)includes\ /S /E /Y
 xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
       <Message>Create package.</Message>
-      <Outputs>$(PackageDir)includes\primordialmachine\functors\common_type.hpp;$(PackageDir)includes\primordialmachine\functors\enable_if.hpp;$(PackageDir)includes\primordialmachine\functors\include.hpp;$(PackageDir)includes\primordialmachine\functors\is_floating_point.hpp;$(PackageDir)includes\primordialmachine\functors\is_same.hpp;$(PackageDir)includes\primordialmachine\functors\integer_sequence.hpp</Outputs>
-      <Inputs>$(ProjectDir)includes\primordialmachine\functors\common_type.hpp;$(ProjectDir)includes\primordialmachine\functors\enable_if.hpp;$(ProjectDir)includes\primordialmachine\functors\include.hpp;$(ProjectDir)includes\primordialmachine\functors\is_floating_point.hpp;$(ProjectDir)includes\primordialmachine\functors\is_same.hpp;$(ProjectDir)includes\primordialmachine\functors\integer_sequence.hpp</Inputs>
+      <Outputs>$(PackageDir)includes\primordialmachine\functors\common_type.hpp;$(PackageDir)includes\primordialmachine\functors\enable_if.hpp;$(PackageDir)includes\primordialmachine\functors\arity.hpp;$(PackageDir)includes\primordialmachine\functors\result_type.hpp;$(PackageDir)includes\primordialmachine\functors\include.hpp;$(PackageDir)includes\primordialmachine\functors\is_floating_point.hpp;$(PackageDir)includes\primordialmachine\functors\is_same.hpp;$(PackageDir)includes\primordialmachine\functors\integer_sequence.hpp</Outputs>
+      <Inputs>$(ProjectDir)includes\primordialmachine\functors\common_type.hpp;$(ProjectDir)includes\primordialmachine\functors\enable_if.hpp;$(ProjectDir)includes\primordialmachine\functors\arity.hpp;$(ProjectDir)includes\primordialmachine\functors\result_type.hpp;$(ProjectDir)includes\primordialmachine\functors\include.hpp;$(ProjectDir)includes\primordialmachine\functors\is_floating_point.hpp;$(ProjectDir)includes\primordialmachine\functors\is_same.hpp;$(ProjectDir)includes\primordialmachine\functors\integer_sequence.hpp</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -196,8 +198,8 @@ xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
       <Command>xcopy $(ProjectDir)includes $(PackageDir)includes\ /S /E /Y
 xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
       <Message>Create package.</Message>
-      <Outputs>$(PackageDir)includes\primordialmachine\functors\common_type.hpp;$(PackageDir)includes\primordialmachine\functors\enable_if.hpp;$(PackageDir)includes\primordialmachine\functors\include.hpp;$(PackageDir)includes\primordialmachine\functors\is_floating_point.hpp;$(PackageDir)includes\primordialmachine\functors\is_same.hpp;$(PackageDir)includes\primordialmachine\functors\integer_sequence.hpp</Outputs>
-      <Inputs>$(ProjectDir)includes\primordialmachine\functors\common_type.hpp;$(ProjectDir)includes\primordialmachine\functors\enable_if.hpp;$(ProjectDir)includes\primordialmachine\functors\include.hpp;$(ProjectDir)includes\primordialmachine\functors\is_floating_point.hpp;$(ProjectDir)includes\primordialmachine\functors\is_same.hpp;$(ProjectDir)includes\primordialmachine\functors\integer_sequence.hpp</Inputs>
+      <Outputs>$(PackageDir)includes\primordialmachine\functors\common_type.hpp;$(PackageDir)includes\primordialmachine\functors\enable_if.hpp;$(PackageDir)includes\primordialmachine\functors\arity.hpp;$(PackageDir)includes\primordialmachine\functors\result_type.hpp;$(PackageDir)includes\primordialmachine\functors\include.hpp;$(PackageDir)includes\primordialmachine\functors\is_floating_point.hpp;$(PackageDir)includes\primordialmachine\functors\is_same.hpp;$(PackageDir)includes\primordialmachine\functors\integer_sequence.hpp</Outputs>
+      <Inputs>$(ProjectDir)includes\primordialmachine\functors\common_type.hpp;$(ProjectDir)includes\primordialmachine\functors\enable_if.hpp;$(ProjectDir)includes\primordialmachine\functors\arity.hpp;$(ProjectDir)includes\primordialmachine\functors\result_type.hpp;$(ProjectDir)includes\primordialmachine\functors\include.hpp;$(ProjectDir)includes\primordialmachine\functors\is_floating_point.hpp;$(ProjectDir)includes\primordialmachine\functors\is_same.hpp;$(ProjectDir)includes\primordialmachine\functors\integer_sequence.hpp</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -227,8 +229,8 @@ xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
       <Command>xcopy $(ProjectDir)includes $(PackageDir)includes\ /S /E /Y
 xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
       <Message>Create package.</Message>
-      <Outputs>$(PackageDir)includes\primordialmachine\functors\common_type.hpp;$(PackageDir)includes\primordialmachine\functors\enable_if.hpp;$(PackageDir)includes\primordialmachine\functors\include.hpp;$(PackageDir)includes\primordialmachine\functors\is_floating_point.hpp;$(PackageDir)includes\primordialmachine\functors\is_same.hpp;$(PackageDir)includes\primordialmachine\functors\integer_sequence.hpp</Outputs>
-      <Inputs>$(ProjectDir)includes\primordialmachine\functors\common_type.hpp;$(ProjectDir)includes\primordialmachine\functors\enable_if.hpp;$(ProjectDir)includes\primordialmachine\functors\include.hpp;$(ProjectDir)includes\primordialmachine\functors\is_floating_point.hpp;$(ProjectDir)includes\primordialmachine\functors\is_same.hpp;$(ProjectDir)includes\primordialmachine\functors\integer_sequence.hpp</Inputs>
+      <Outputs>$(PackageDir)includes\primordialmachine\functors\common_type.hpp;$(PackageDir)includes\primordialmachine\functors\enable_if.hpp;$(PackageDir)includes\primordialmachine\functors\arity.hpp;$(PackageDir)includes\primordialmachine\functors\result_type.hpp;$(PackageDir)includes\primordialmachine\functors\include.hpp;$(PackageDir)includes\primordialmachine\functors\is_floating_point.hpp;$(PackageDir)includes\primordialmachine\functors\is_same.hpp;$(PackageDir)includes\primordialmachine\functors\integer_sequence.hpp</Outputs>
+      <Inputs>$(ProjectDir)includes\primordialmachine\functors\common_type.hpp;$(ProjectDir)includes\primordialmachine\functors\enable_if.hpp;$(ProjectDir)includes\primordialmachine\functors\arity.hpp;$(ProjectDir)includes\primordialmachine\functors\result_type.hpp;$(ProjectDir)includes\primordialmachine\functors\include.hpp;$(ProjectDir)includes\primordialmachine\functors\is_floating_point.hpp;$(ProjectDir)includes\primordialmachine\functors\is_same.hpp;$(ProjectDir)includes\primordialmachine\functors\integer_sequence.hpp</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

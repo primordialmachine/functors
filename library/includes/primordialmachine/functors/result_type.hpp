@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // Primordial Machine's Functors Library
-// Copyright (C) 2017-2019 Michael Heilmann
+// Copyright (C) 2019 Michael Heilmann
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the
@@ -25,10 +25,35 @@
 
 #pragma once
 
-#include "primordialmachine/functors/is_same.hpp"
-#include "primordialmachine/functors/common_type.hpp"
-#include "primordialmachine/functors/enable_if.hpp"
-#include "primordialmachine/functors/is_floating_point.hpp"
-#include "primordialmachine/functors/integer_sequence.hpp"
-#include "primordialmachine/functors/arity.hpp"
-#include "primordialmachine/functors/result_type.hpp"
+namespace primordialmachine {
+
+// Primary template handles types that have no nested ::result_type member.
+template<class, class = std::void_t<>>
+struct has_result_type : std::false_type
+{};
+
+// Specialization recognizes types that do have a nested ::result_type member.
+template<class T>
+struct has_result_type<T, std::void_t<typename T::result_type>> : std::true_type
+{};
+
+template<class T>
+constexpr bool has_result_type_v = has_result_type<T>::value;
+
+} // namespace primordialmachine
+
+namespace primordialmachine {
+
+template<class, class = std::void_t<>>
+struct result_type;
+
+template<class T>
+struct result_type<T, enable_if_t<has_result_type_v<T>>>
+{
+  using type = typename T::result_type;
+}; // struct result_type
+
+template<class T>
+using result_type_t = typename result_type<T>::type;
+
+} // namespace primordialmachine

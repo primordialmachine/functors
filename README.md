@@ -11,4 +11,4 @@ The library is made available publicly on [GitHub](https://github.com/primordial
 *This is an internal utility library. Consumption is not recommended.*
 
 ## Releases
-Relases of this library are made available via [GitHub releases](https://github.com/primordialmachine/functors/releases/). A Github Release contains the *source code*, *prebuilt documentation*, and *prebuilt binaries for Visual Studio 2017*. The latest release is [version 1.1](https://github.com/primordialmachine/functors/releases/latest).
+Relases of this library are made available via [GitHub releases](https://github.com/primordialmachine/functors/releases/). A Github Release contains the *source code*, *prebuilt documentation*, and *prebuilt binaries for Visual Studio 2017*. The latest release is [version 1.2](https://github.com/primordialmachine/functors/releases/latest).

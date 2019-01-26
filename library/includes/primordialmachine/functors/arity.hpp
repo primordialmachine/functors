@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // Primordial Machine's Functors Library
-// Copyright (C) 2017-2019 Michael Heilmann
+// Copyright (C) 2019 Michael Heilmann
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the
@@ -25,10 +25,36 @@
 
 #pragma once
 
-#include "primordialmachine/functors/is_same.hpp"
-#include "primordialmachine/functors/common_type.hpp"
-#include "primordialmachine/functors/enable_if.hpp"
-#include "primordialmachine/functors/is_floating_point.hpp"
-#include "primordialmachine/functors/integer_sequence.hpp"
-#include "primordialmachine/functors/arity.hpp"
-#include "primordialmachine/functors/result_type.hpp"
+namespace primordialmachine {
+
+// Primary template handles types that have no nested ::arity member.
+template<class, class = std::void_t<>>
+struct has_arity : std::false_type
+{};
+
+// Specialization recognizes types that do have a nested ::arity member.
+template<class T>
+struct has_arity<T, std::void_t<decltype(T::arity)>> : std::true_type
+{};
+
+template<class T>
+constexpr bool has_arity_v = has_arity<T>::value;
+
+} // namespace primordialmachine
+
+namespace primordialmachine {
+
+template<class, class = std::void_t<>>
+struct arity;
+
+template<class T>
+struct arity<T, enable_if_t<has_arity_v<T>>>
+{
+  static constexpr bool value = T::arity;
+  
+}; // struct result_type
+
+template<class T>
+constexpr bool arity_v = arity<T> : value;
+
+} // namespace primordialmachine
