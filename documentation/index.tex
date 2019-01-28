@@ -39,7 +39,7 @@
 \SetLibraryStaticLibrariesDirectoryPath{primordialmachine/functors/\newline\$(PlatformTarget.toLower())/\$(Configuration.toLower())/libraries}
 \SetLibraryStaticLibraryFileName{functors.lib}
 
-\SetLibraryVersion{v1.2}
+\SetLibraryVersion{v1.3}
 \SetLibraryRepository{https://github.com/primordialmachine/functors}
 \SetAuthor{Michael Heilmann}
 \SetEmail{michaelheilmann@primordialmachine.com}
@@ -97,8 +97,14 @@ The library provides aliases for
 	\item \texttt{std::common\_type} and \texttt{std::common\_type\_t},
 	\item \texttt{std::size\_t},
 	\item \texttt{std::integer\_sequence} and \texttt{std::make\_integer\_sequence},
-	\item \texttt{std::index\_sequence} and \texttt{std::make\_index\_sequence}.
+	\item \texttt{std::index\_sequence} and \texttt{std::make\_index\_sequence}, and
+	\item \texttt{std::true\_type} and \texttt{std::false\_type}.
 \end{enumerate}
 in the aformended namespace.
+
+\subsection{Concepts}
+\input{functors}
+
+\input{bibliography}
 
 \end{document}
