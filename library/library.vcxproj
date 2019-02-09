@@ -78,59 +78,49 @@
   <ImportGroup Label="Shared">
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="package.props" />
+    <Import Project="..\commons.props" />
+    <Import Project="..\commons-debug.props" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="package.props" />
+    <Import Project="..\commons.props" />
+    <Import Project="..\commons-release.props" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="package.props" />
+    <Import Project="..\commons.props" />
+    <Import Project="..\commons-debug.props" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="package.props" />
+    <Import Project="..\commons.props" />
+    <Import Project="..\commons-release.props" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)products\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</OutDir>
-    <IntDir>$(SolutionDir)intermediates\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</IntDir>
     <TargetName>$(PackageName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)products\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</OutDir>
-    <IntDir>$(SolutionDir)intermediates\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</IntDir>
     <TargetName>$(PackageName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)products\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</OutDir>
-    <IntDir>$(SolutionDir)intermediates\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</IntDir>
     <TargetName>$(PackageName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IntDir>$(SolutionDir)intermediates\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</IntDir>
-    <OutDir>$(SolutionDir)products\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</OutDir>
     <TargetName>$(PackageName)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
-      <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <OpenMPSupport>false</OpenMPSupport>
-      <EnableModules>false</EnableModules>
       <AdditionalIncludeDirectories>$(ProjectDir)includes</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -138,26 +128,16 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <CustomBuildStep>
-      <Command>xcopy $(ProjectDir)includes $(PackageDir)includes\ /S /E /Y
-xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
+      <Command>xcopy $(ProjectDir)includes $(PackageTargetDir)includes\ /S /E /Y
+xcopy $(OutDir)*.lib $(PackageTargetDir)libraries\ /S /E /Y</Command>
       <Message>Create package.</Message>
-      <Outputs>$(PackageDir)includes\primordialmachine\functors\arity.hpp;$(PackageDir)includes\primordialmachine\functors\common_type.hpp;$(PackageDir)includes\primordialmachine\functors\enable_if.hpp;$(PackageDir)includes\primordialmachine\functors\include.hpp;$(PackageDir)includes\primordialmachine\functors\integer_sequence.hpp;$(PackageDir)includes\primordialmachine\functors\integral_constant.hpp;$(PackageDir)includes\primordialmachine\functors\is_floating_point.hpp;$(PackageDir)includes\primordialmachine\functors\is_same.hpp;$(PackageDir)includes\primordialmachine\functors\result_type.hpp</Outputs>
+      <Outputs>$(PackageTargetDir)includes\primordialmachine\functors\arity.hpp;$(PackageTargetDir)includes\primordialmachine\functors\common_type.hpp;$(PackageTargetDir)includes\primordialmachine\functors\enable_if.hpp;$(PackageTargetDir)includes\primordialmachine\functors\include.hpp;$(PackageTargetDir)includes\primordialmachine\functors\integer_sequence.hpp;$(PackageTargetDir)includes\primordialmachine\functors\integral_constant.hpp;$(PackageTargetDir)includes\primordialmachine\functors\is_floating_point.hpp;$(PackageTargetDir)includes\primordialmachine\functors\is_same.hpp;$(PackageTargetDir)includes\primordialmachine\functors\result_type.hpp</Outputs>
       <Inputs>$(ProjectDir)includes\primordialmachine\functors\arity.hpp;$(ProjectDir)includes\primordialmachine\functors\common_type.hpp;$(ProjectDir)includes\primordialmachine\functors\enable_if.hpp;$(ProjectDir)includes\primordialmachine\functors\include.hpp;$(ProjectDir)includes\primordialmachine\functors\integer_sequence.hpp;$(ProjectDir)includes\primordialmachine\functors\integral_constant.hpp;$(ProjectDir)includes\primordialmachine\functors\is_floating_point.hpp;$(ProjectDir)includes\primordialmachine\functors\is_same.hpp;$(ProjectDir)includes\primordialmachine\functors\result_type.hpp</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
-      <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <OpenMPSupport>false</OpenMPSupport>
-      <EnableModules>false</EnableModules>
       <AdditionalIncludeDirectories>$(ProjectDir)includes</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -165,28 +145,16 @@ xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <CustomBuildStep>
-      <Command>xcopy $(ProjectDir)includes $(PackageDir)includes\ /S /E /Y
-xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
+      <Command>xcopy $(ProjectDir)includes $(PackageTargetDir)includes\ /S /E /Y
+xcopy $(OutDir)*.lib $(PackageTargetDir)libraries\ /S /E /Y</Command>
       <Message>Create package.</Message>
-      <Outputs>$(PackageDir)includes\primordialmachine\functors\arity.hpp;$(PackageDir)includes\primordialmachine\functors\common_type.hpp;$(PackageDir)includes\primordialmachine\functors\enable_if.hpp;$(PackageDir)includes\primordialmachine\functors\include.hpp;$(PackageDir)includes\primordialmachine\functors\integer_sequence.hpp;$(PackageDir)includes\primordialmachine\functors\integral_constant.hpp;$(PackageDir)includes\primordialmachine\functors\is_floating_point.hpp;$(PackageDir)includes\primordialmachine\functors\is_same.hpp;$(PackageDir)includes\primordialmachine\functors\result_type.hpp</Outputs>
+      <Outputs>$(PackageTargetDir)includes\primordialmachine\functors\arity.hpp;$(PackageTargetDir)includes\primordialmachine\functors\common_type.hpp;$(PackageTargetDir)includes\primordialmachine\functors\enable_if.hpp;$(PackageTargetDir)includes\primordialmachine\functors\include.hpp;$(PackageTargetDir)includes\primordialmachine\functors\integer_sequence.hpp;$(PackageTargetDir)includes\primordialmachine\functors\integral_constant.hpp;$(PackageTargetDir)includes\primordialmachine\functors\is_floating_point.hpp;$(PackageTargetDir)includes\primordialmachine\functors\is_same.hpp;$(PackageTargetDir)includes\primordialmachine\functors\result_type.hpp</Outputs>
       <Inputs>$(ProjectDir)includes\primordialmachine\functors\arity.hpp;$(ProjectDir)includes\primordialmachine\functors\common_type.hpp;$(ProjectDir)includes\primordialmachine\functors\enable_if.hpp;$(ProjectDir)includes\primordialmachine\functors\include.hpp;$(ProjectDir)includes\primordialmachine\functors\integer_sequence.hpp;$(ProjectDir)includes\primordialmachine\functors\integral_constant.hpp;$(ProjectDir)includes\primordialmachine\functors\is_floating_point.hpp;$(ProjectDir)includes\primordialmachine\functors\is_same.hpp;$(ProjectDir)includes\primordialmachine\functors\result_type.hpp</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
-      <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <OpenMPSupport>false</OpenMPSupport>
-      <EnableModules>false</EnableModules>
       <AdditionalIncludeDirectories>$(ProjectDir)includes</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -196,28 +164,16 @@ xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <CustomBuildStep>
-      <Command>xcopy $(ProjectDir)includes $(PackageDir)includes\ /S /E /Y
-xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
+      <Command>xcopy $(ProjectDir)includes $(PackageTargetDir)includes\ /S /E /Y
+xcopy $(OutDir)*.lib $(PackageTargetDir)libraries\ /S /E /Y</Command>
       <Message>Create package.</Message>
-      <Outputs>$(PackageDir)includes\primordialmachine\functors\arity.hpp;$(PackageDir)includes\primordialmachine\functors\common_type.hpp;$(PackageDir)includes\primordialmachine\functors\enable_if.hpp;$(PackageDir)includes\primordialmachine\functors\include.hpp;$(PackageDir)includes\primordialmachine\functors\integer_sequence.hpp;$(PackageDir)includes\primordialmachine\functors\integral_constant.hpp;$(PackageDir)includes\primordialmachine\functors\is_floating_point.hpp;$(PackageDir)includes\primordialmachine\functors\is_same.hpp;$(PackageDir)includes\primordialmachine\functors\result_type.hpp</Outputs>
+      <Outputs>$(PackageTargetDir)includes\primordialmachine\functors\arity.hpp;$(PackageTargetDir)includes\primordialmachine\functors\common_type.hpp;$(PackageTargetDir)includes\primordialmachine\functors\enable_if.hpp;$(PackageTargetDir)includes\primordialmachine\functors\include.hpp;$(PackageTargetDir)includes\primordialmachine\functors\integer_sequence.hpp;$(PackageTargetDir)includes\primordialmachine\functors\integral_constant.hpp;$(PackageTargetDir)includes\primordialmachine\functors\is_floating_point.hpp;$(PackageTargetDir)includes\primordialmachine\functors\is_same.hpp;$(PackageTargetDir)includes\primordialmachine\functors\result_type.hpp</Outputs>
       <Inputs>$(ProjectDir)includes\primordialmachine\functors\arity.hpp;$(ProjectDir)includes\primordialmachine\functors\common_type.hpp;$(ProjectDir)includes\primordialmachine\functors\enable_if.hpp;$(ProjectDir)includes\primordialmachine\functors\include.hpp;$(ProjectDir)includes\primordialmachine\functors\integer_sequence.hpp;$(ProjectDir)includes\primordialmachine\functors\integral_constant.hpp;$(ProjectDir)includes\primordialmachine\functors\is_floating_point.hpp;$(ProjectDir)includes\primordialmachine\functors\is_same.hpp;$(ProjectDir)includes\primordialmachine\functors\result_type.hpp</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
-      <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <OpenMPSupport>false</OpenMPSupport>
-      <EnableModules>false</EnableModules>
       <AdditionalIncludeDirectories>$(ProjectDir)includes</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -227,10 +183,10 @@ xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <CustomBuildStep>
-      <Command>xcopy $(ProjectDir)includes $(PackageDir)includes\ /S /E /Y
-xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
+      <Command>xcopy $(ProjectDir)includes $(PackageTargetDir)includes\ /S /E /Y
+xcopy $(OutDir)*.lib $(PackageTargetDir)libraries\ /S /E /Y</Command>
       <Message>Create package.</Message>
-      <Outputs>$(PackageDir)includes\primordialmachine\functors\arity.hpp;$(PackageDir)includes\primordialmachine\functors\common_type.hpp;$(PackageDir)includes\primordialmachine\functors\enable_if.hpp;$(PackageDir)includes\primordialmachine\functors\include.hpp;$(PackageDir)includes\primordialmachine\functors\integer_sequence.hpp;$(PackageDir)includes\primordialmachine\functors\integral_constant.hpp;$(PackageDir)includes\primordialmachine\functors\is_floating_point.hpp;$(PackageDir)includes\primordialmachine\functors\is_same.hpp;$(PackageDir)includes\primordialmachine\functors\result_type.hpp</Outputs>
+      <Outputs>$(PackageTargetDir)includes\primordialmachine\functors\arity.hpp;$(PackageTargetDir)includes\primordialmachine\functors\common_type.hpp;$(PackageTargetDir)includes\primordialmachine\functors\enable_if.hpp;$(PackageTargetDir)includes\primordialmachine\functors\include.hpp;$(PackageTargetDir)includes\primordialmachine\functors\integer_sequence.hpp;$(PackageTargetDir)includes\primordialmachine\functors\integral_constant.hpp;$(PackageTargetDir)includes\primordialmachine\functors\is_floating_point.hpp;$(PackageTargetDir)includes\primordialmachine\functors\is_same.hpp;$(PackageTargetDir)includes\primordialmachine\functors\result_type.hpp</Outputs>
       <Inputs>$(ProjectDir)includes\primordialmachine\functors\arity.hpp;$(ProjectDir)includes\primordialmachine\functors\common_type.hpp;$(ProjectDir)includes\primordialmachine\functors\enable_if.hpp;$(ProjectDir)includes\primordialmachine\functors\include.hpp;$(ProjectDir)includes\primordialmachine\functors\integer_sequence.hpp;$(ProjectDir)includes\primordialmachine\functors\integral_constant.hpp;$(ProjectDir)includes\primordialmachine\functors\is_floating_point.hpp;$(ProjectDir)includes\primordialmachine\functors\is_same.hpp;$(ProjectDir)includes\primordialmachine\functors\result_type.hpp</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
